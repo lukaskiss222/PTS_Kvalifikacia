@@ -3,6 +3,11 @@ filename = 'ranking.csv'
 
 
 def iterator(function):
+    """
+    iteruje cez prvky v subore a oplikuje nanu funkciu function
+    ak vrati True tak vrati aj tato fukcia
+    Tato fukcia je iterator cez prvky v subore
+    """
     f = open(filename,'r')
     for line in f:
         values = line.split(',')
@@ -13,6 +18,9 @@ def iterator(function):
 
 
 def getAllShortNames():
+    """
+    Vrati vsetky skratky statov
+    """
     def f(v):
         return True
     ret = []
@@ -21,6 +29,9 @@ def getAllShortNames():
     return ret
 
 def shortToLong(name):
+    """
+    Skonvertuje kratke na dlhe
+    """
     def f(v):
         if v[2] == name:
             return True
@@ -28,6 +39,9 @@ def shortToLong(name):
         return val[1]
 
 def getPoints(list_names):
+    """
+    Ziska Rank z tabulky a vrati to cislo pre kazdy stat v liste
+    """
     def f(v):
         if v[2] in list_names:
             return True
